@@ -5,17 +5,17 @@ class SpicesController < ApplicationController
         render json: spices
     end
 
-    def create 
+    def create
         spice = Spice.create(spice_params)
         render json: spice, status: :created
     end
 
-    def update 
+    def update
         #find the id
         spice = Spice.find_by(id: params[:id])
         #update
         spice.update(spice_params)
-        #render json data 
+        #render json data
         render json: spice, status: :created
     end
 
@@ -25,7 +25,7 @@ class SpicesController < ApplicationController
         head :no_content
     end
 
-    private 
+    private
 
     def spice_params
         params.permit(:title, :description, :image, :notes, :rating)
